@@ -1,0 +1,35 @@
+
+<div class="box2" id="newsletter">
+    <h3>Subscribe to our newsletter </h3>
+    <p>Register below and receive all news from The Monkees. </p>
+    <div class="clear"></div>
+  
+      <!-- Form -->
+    <div ng-controller="FormNewsletterController">
+      <form id="form-newsletter" ng-submit="submit()" class="form-horizontal" novalidate>
+          <label>Firstname</label>
+          <input class="form-control"
+                 type="text"      
+                 name="firstname" 
+                 ng-model="subscribe.firstname" 
+                 ng-minlength=3 
+                 ng-maxlength=20 
+                 required />
+          <br>
+          <label>Email</label>
+          <input class="form-control"
+                 type="email"                     
+                 name="email" 
+                 ng-model="subscribe.email" 
+                 ng-minlength=5 
+                 ng-maxlength=40 
+                 required  />
+          <p class="help-block" ng-if="userForm.email.$error.required">The user's email is required</p>
+          <p class="help-block" ng-if="userForm.email.$error.email">The email address is invalid</p>    
+          <br>
+          <div class="centered">
+              <button class="btn btn-lg btn-danger">Subscribe</button>
+          </div>
+        </form>
+    </div>
+</div>
