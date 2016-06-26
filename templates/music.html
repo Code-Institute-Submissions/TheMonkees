@@ -5,41 +5,55 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-7 ">
-		<video controls= "controls" preload="metadata" poster="../images/video-poster.jpg" >
-    		<source src="../video/TheMonkees.mp4"  />
-		</video>
-	</div>
-
-<!-- I want to do one player with 5 songs instead of 5 players -->
-
-
-		<h4>Clarksville</h4>
-		<audio controls preload="auto"  >
-  				<source src="../audio/Clarksville.mp3" type="audio/mp3">
+	<div class="col-md-6" ng-controller="AudioPlayer" id="playlist">
+		<h2>Featured Tracks</h2>
+		<!--Audio Player-->
+		<div id="audio-player" class="box1">
+		
+			<!-- Will take the src from the list below. Initialised with first song -->
+			<h4>Now playing: {{song.title}}</h4> <!-- updates with the current song-->
+			
+			<img id="song-cover" alt="cover" />
+			<audio controls preload="auto" >
+  				<source type="audio/mp3" >
   				Your browser does not support the audio tag.
- 		</audio>
+ 			</audio>
+ 		
+ 			
+ 			<p id="error-song" style="color: red" class="hidden">Sorry, the song you selected is not available</p>
+ 			<h4>Tracklist</h4>
 
-		<h4>Daydream Believer</h4>
-		<audio controls preload="metadata">
-  			<source src="../audio/DaydreamBeliever.mp3" type="audio/mp3">
- 		</audio>
+			<ul id="tracklist">
+			<!-- ng-click calls a function that check what song was clicked and updates the player with that song-->
+				<li ><span class="glyphicon glyphicon-music"></span>&nbsp;<a href="" id="Clarksville" ng-click="playThis('Clarksville')">Clarksville</a></li>
+				<li><span class="glyphicon glyphicon-music"></span>&nbsp;<a href="" id="Daydream-Believer" ng-click="playThis('Daydream Believer')">Daydream Believer</a></li>
+				<li><span class="glyphicon glyphicon-music"></span>&nbsp;<a href="" id="I-am-a-Believer" ng-click="playThis('I am a Believer')">I am a Believer</a></li>
+				<li><span class="glyphicon glyphicon-music"></span>&nbsp;<a href="" id="Stepping-Stone" ng-click="playThis('Stepping Stone')">Stepping Stone</a></li>
+				<li><span class="glyphicon glyphicon-music"></span>&nbsp;<a href="" id="Tailtoddler" ng-click="playThis('Tailtoddle-')">Tailtoddle (test not found)</a></li>
 
-		<h4>I am a Believer</h4>
-		<audio controls preload="metadata">
-  			<source src="../audio/ImABeliever.mp3" type="audio/mp3">
- 		</audio>
-
-		<h4>Stepping Stone</h4>
-		<audio controls preload="metadata">
-  			<source src="../audio/SteppingStone.mp3" type="audio/mp3">
- 		</audio>
-
-		<h4>Tailtoddle</h4>
- 		<audio controls preload="metadata">
-  			<source src="../audio/tailtoddle_lo.mp3" type="audio/mp3">
- 		</audio>
+			</ul>
+			
+			
+		</div>
 	</div>
+
+<!-- Video Player-->
+	<div class="col-md-5 ">
+		<h2>Featured Video</h2>
+		<div id="video-player">
+			<video controls= "controls" preload="metadata" poster="../images/video-poster.jpg" >
+    			<source src="../video/TheMonkees.mp4"  />
+			</video>
+		</div>
+	</div>
+	<div class="col-md-1 "></div>
+</div>
+
+
+
+
+<div class="row">
+	
 </div>
 
 <!-- I want to use iTunes Search API here 
@@ -60,4 +74,5 @@
 	</div>
 </div>-->
 
+</div>
 </div>

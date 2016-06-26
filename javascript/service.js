@@ -7,3 +7,4 @@ angular.module('bandServices',[])
 			return $http.jsonp(url);
         };
 });
+

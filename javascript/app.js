@@ -33,5 +33,9 @@ angular.module("bandApp",["ngRoute","bandControllers","bandDirectives"])
 		templateUrl: "templates/upcoming-gigs.html",
 		controller: "UpcomingGigsController"
 	})
+	.when("/contact",{
+		templateUrl:"templates/contact.html",
+		controller:"ContactController"
+	})
 	.otherwise({redirectTo: '/'});
 })

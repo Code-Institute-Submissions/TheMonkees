@@ -221,5 +221,48 @@ border: 1px solid #ccc;
 
 h1 {
 	font-size: 50px;
+	font-weight: bold;
+}
+h2, h3, h4 {
+	font-weight: bold;
+}
+#tracklist{
+	font-size: 20px;
+	list-style: none;
 }
 
+#audio-player{
+	text-align: left;
+}
+
+#video-player video{
+	max-width: 500px;
+}
+#song-cover{
+	float: right;
+	max-height: 150px;
+	max-width: 150px;
+}
+
+a{
+	color: black;
+
+}
+a:hover, a:focus{
+	color: #E74C3C;
+}
+
+.map-container {
+    position: relative;
+}
+ 
+.zoom-controls {
+    position: absolute;
+    top: 1em;
+    left: 0.6em;
+}
+ 
+.zoom-button {
+    padding: 4px 8px;
+    opacity: 0.8;
+}
