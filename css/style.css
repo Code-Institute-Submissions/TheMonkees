@@ -8,7 +8,7 @@
 /*bg image layer to make it half transparent  */
 #bg-img::after {
   content: "";
-  background-image: url(../images/bg3.jpg);
+  background-image: url(/images/bg3.jpg);
   opacity: 0.3;
   top: 0;
   left: 0;
@@ -164,7 +164,7 @@ Grey buy default. colored when hovering */
 }
 /*  */
 #newsletter::after { /* layer to make it transparent */
-	background-image: url(../images/email.png);
+	background-image: url(/images/email.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	content: "";

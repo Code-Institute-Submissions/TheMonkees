@@ -54,20 +54,20 @@ angular.module("bandControllers",[])
 		//Array with tracks: title, track source and cover src
 		var tracks = [
 			{title:"Clarksville",
-			 	trackSrc:"../audio/Clarksville.mp3",
-			 	cover:"../images/album1.jpg"},
+			 	trackSrc:"audio/Clarksville.mp3",
+			 	cover:"images/album1.jpg"},
 			{title: "Daydream Believer",
-				 trackSrc:"../audio/DaydreamBeliever.mp3",
-				 cover:"../images/album2.jpg"},
+				 trackSrc:"audio/DaydreamBeliever.mp3",
+				 cover:"images/album2.jpg"},
 			 {title: "I am a Believer",
-				 trackSrc:"../audio/ImABeliever.mp3",
-				 cover:"../images/album2.jpg"},
+				 trackSrc:"audio/ImABeliever.mp3",
+				 cover:"images/album2.jpg"},
 			 {title: "Stepping Stone",
-				 trackSrc:"../audio/SteppingStone.mp3",
-				 cover:"../images/album3.jpg"},
+				 trackSrc:"audio/SteppingStone.mp3",
+				 cover:"images/album3.jpg"},
 			 {title: "Tailtoddle",
-				 trackSrc:"../audio/tailtoddle_lo.mp3",
-				 cover:"../images/album3.jpg"}
+				 trackSrc:"audio/tailtoddle_lo.mp3",
+				 cover:"images/album3.jpg"}
 		];		
 	
 
@@ -160,9 +160,4 @@ angular.module("bandControllers",[])
 	        );
 	})
 
-.controller('mapController',function($scope) {
-//
-  
-   
-});
 
