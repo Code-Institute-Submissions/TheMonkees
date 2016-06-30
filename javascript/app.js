@@ -9,10 +9,7 @@ angular.module("bandApp",["ngRoute","bandControllers","bandDirectives"])
 		templateUrl: "templates/the-band.html",
 		controller: "TheBandController"
 	})
-	.when("/the-band",{
-		templateUrl: "templates/the-band.html",
-		controller: "TheBandController"
-	})
+	
 	.when("/news",{
 		templateUrl: "templates/news.html",
 		controller: "NewsController"
