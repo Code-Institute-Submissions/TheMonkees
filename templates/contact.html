@@ -5,27 +5,99 @@
 	</div>
 </div>
 <div class="row">                
-    <div class="col-md-6" >
+    <div class="col-md-5" >
 
  	   <h3>Get in touch</h3>
  	   <h4><a href="mailto:">info@themonkees.com</a></h4>
 	    <h4>+353 (0) 85 555 5555</h4>
 
-		<h3>Location</h3>
+
+	    <div id="contactus" class="box3">
+    		
+    		
+   			<!-- Form -->
+   
+    		<div ng-controller="FormContactUsController" >
+      			<form id="form-contactus" ng-submit="formContactus(form-contactus)" class="form-horizontal" novalidate>
+      			<legend>Enquiry form</legend><br>
+      			
+		          <label>First Name *</label>
+		          <input class="form-control"
+		                 type="text"      
+		                 name="firstname" 
+		                 ng-model="subscribe.firstname" 
+		                 ng-minlength=3 
+		                 ng-maxlength=20 
+		                 required />
+		          <br>
+		          <div class="error-container" ng-show="form-contactus.username.$dirty && register_form.firstname.$invalid && submitted">
+					<label style='color: red'>Error:</label>
+					<p class="error" ng-show="form-contactus.firstname.$error.required">Please input a username</p>
+					<p class="error" ng-show="form-contactus.firstname.$error.minlength">Your First Name is required to be at least 3 characters</p>
+					<p class="error" ng-show="form-contactus.firstname.$error.maxlength">Your First Name cannot be longer than 20 characters</p>
+				</div>
+		          <label>Last Name *</label>
+		          <input class="form-control"
+		                 type="text"      
+		                 name="lastname" 
+		                 ng-model="subscribe.lastname" 
+		                 ng-minlength=3 
+		                 ng-maxlength=20 
+		                 required />
+		          <br>
+
+		          <label>Email *</label>
+		          <input class="form-control"
+		                 type="email"                     
+		                 name="email" 
+		                 ng-model="subscribe.email" 
+		                 ng-minlength=5 
+		                 ng-maxlength=40 
+		                 required  />
+		          <p class="help-block" ng-if="userForm.email.$error.required">The user's email is required</p>
+		          <p class="help-block" ng-if="userForm.email.$error.email">The email address is invalid</p>    
+		          <br>
+		          <label>Phone</label>
+		          <input class="form-control"
+		                 type="text"      
+		                 name="phone" 
+		                 ng-model="subscribe.phone" 
+		                 ng-pattern="[0-9]"
+		                 ng-minlength=10 
+		                 ng-maxlength=15 
+		                 placeholder="Please use only numbers"/>
+		          <br><br>
+		           <label id="label-textarea">How can we help you? *</label>
+		          <textarea class="form-control"
+		                 name="comments" 
+		                 ng-model="subscribe.comments" 
+		                 ng-minlength=10
+		                 ng-maxlength=250 
+		                 width: 150px
+		                 height: 200px
+		                 placeholder="Max 250 characters"
+		                 required></textarea>
+		          <br>
+		          
+		          <div class="centered">
+		              <button class="btn btn-lg btn-danger">Send</button>
+		          </div>
+       			</form>
+   			</div>
+
+		</div>
+		
+    </div>
+
+
+    <div class="col-md-6 col-md-offset-1" >
+    	<h3>Location</h3>
 	    <h4>{{map.address}}</h4>
    
    <!--Map in progress. Want to change to google maps api-->
 	   <make-map map="map"></make-map>
-    </div>
-    <div class="col-md-6" >
-    <h3>Contact us</h3>
-    	<!--Form-->
+	   <br>
     </div>
 </div>
 </div>
 
-
-
-
-
-</div>

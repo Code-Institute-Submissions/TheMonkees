@@ -22,14 +22,13 @@ angular.module("bandControllers",[])
 	 	
 	 //create map details
 		$scope.map = {
-        	address: '25 St Stephen Green, Dublin',
+        	address: '25 St Stephen Green, Dublin 2, Dublin',
         	zoom: 14,
-        	width: 400,
-        	height: 300      
+        	width: 500,
+        	height: 400      
         };
 
  
-
 	})
 
 	// Controller for newsletter subscribe form
@@ -39,8 +38,15 @@ angular.module("bandControllers",[])
 	  	$scope.submit = function() {
 	    	$scope.wasSubmitted = true;
 	  	};
-	})
 
+	})
+	.controller('FormContactUsController',function($scope) {
+		$scope.user = {};
+	  	$scope.wasSubmitted = false;
+	  	$scope.formContactus = function() {
+	    	$scope.wasSubmitted = true;
+	  	};
+	})
 	
 	//Controller for audio player
 	.controller('AudioPlayer',function($scope){
