@@ -82,15 +82,12 @@ angular.module("bandControllers",[])
 		if (playlistPlayer === null){
 			throw "Playlist Player does not exist...";
 		}else{
-			//set audio src, title and cover to the current one
-			playlistPlayer.src = tracks[current].trackSrc;
-			playlistPlayer.title=tracks[current].title;
-			playlistCover.src=tracks[current].cover;
-			$scope.song=tracks[current];
+			update_player_with_current_track(tracks[current]);			
 			//wait for a song to finish to execute function next
 			playlistPlayer.addEventListener('ended',next, false)
 		}
 
+		
 		//Start new song when the current one ends
 		function next(){
 			if (current === tracks.length -1){ //if it's the last one
@@ -98,15 +95,19 @@ angular.module("bandControllers",[])
 			}else{
 				current++; //go to the next one in the array
 			}
-			//set the audio src and title to the new one
-			playlistPlayer.src=tracks[current].trackSrc; 
-			playlistPlayer.title=tracks[current].title;
-			//set the img src with the new cover
-			playlistCover.src=tracks[current].cover;
-			//save the current track in scope to use it in the page
-			$scope.song=tracks[current];
+			update_player_with_current_track(tracks[current]);
 		}	
 		
+		function update_player_with_current_track(newTrack){
+			//set the audio src and title to the new one
+			playlistPlayer.src=newTrack.trackSrc; 
+			playlistPlayer.title=newTrack.title;
+			//set the img src with the new cover
+			playlistCover.src=newTrack.cover;
+			//save the current track in scope to use it in the page
+			$scope.song=newTrack;
+		}
+
 		//$scope.play=AudioPlayerService.playThis(newSong)
 		// Play the new song when click in one in the list (ng-click)
 		$scope.playThis=function (newSong){
@@ -115,10 +116,7 @@ angular.module("bandControllers",[])
 				//If the song is found set current to that song
 				if(newSong===tracks[i].title){
 					current=i;
-					playlistPlayer.src=tracks[current].trackSrc;
-					playlistPlayer.title=tracks[current].title;
-					playlistCover.src=tracks[current].cover;
-					$scope.song=tracks[current];
+					update_player_with_current_track(tracks[current]);
 					playlistPlayer.play();
 					document.getElementById("error-song").setAttribute("class", "hidden");
 					found=1
@@ -133,6 +131,8 @@ angular.module("bandControllers",[])
 			}		
 
 		}
+
+		
 		//document.getElementById('Daydream-Believer').addEventListener('click', function () {
 		//	playThis("Daydream Believer")
 		//}, false);	
