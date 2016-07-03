@@ -14,81 +14,113 @@
 
 	    <div id="contactus" class="box3">
     		
-    		
-   			<!-- Form -->
-   
-    		<div ng-controller="FormContactUsController" >
-      			<form id="form-contactus" ng-submit="formContactus(form-contactus)" class="form-horizontal" novalidate>
-      			<legend>Enquiry form</legend><br>
-      			
-		          <label>First Name *</label>
-		          <input class="form-control"
-		                 type="text"      
-		                 name="firstname" 
-		                 ng-model="subscribe.firstname" 
-		                 ng-minlength=3 
-		                 ng-maxlength=20 
-		                 required />
-		          <br>
-		          <div class="error-container" ng-show="form-contactus.username.$dirty && register_form.firstname.$invalid && submitted">
-					<label style='color: red'>Error:</label>
-					<p class="error" ng-show="form-contactus.firstname.$error.required">Please input a username</p>
-					<p class="error" ng-show="form-contactus.firstname.$error.minlength">Your First Name is required to be at least 3 characters</p>
-					<p class="error" ng-show="form-contactus.firstname.$error.maxlength">Your First Name cannot be longer than 20 characters</p>
+    	<!-- Form div -->
+   		<div ng-controller="FormContactUsController" >
+			<!-- Form -->
+   			<form id="form-contactus" name="formContact" ng-submit="submit(formContact)" novalidate>
+      			<legend><h2>Enquiry form</h2></legend>
+      			<!-- Success message appears when the form is submitted and valid -->
+      			 <h3 id="form-contactus-success" class="form-success hidden">   
+		     Thank you for your enquire. We will get in touch in 48 hours.
+				</h3>
+				<!-- End success message -->
+			<!-- First Name -->
+			<p>* Required fields</p>
+		        <label>First Name *</label>
+		        <input class="form-control" 
+		     	   type="text" 
+			   	    name="firstname" 
+			   	    ng-model="user.firstname"
+			        ng-minlength="2" 
+			        ng-maxlength="20"  
+			        required />
+		        <br>
+		        <!-- Error messages   -->
+		        <div class="error-container" ng-show="((formContact.firstname.$invalid && formContact.firstname.$dirty) || formContact.firstname.$pristine) && submitted ">
+					<p class="error" ng-show="formContact.firstname.$error.required">This field is required</p>
+					<p class="error" ng-show="formContact.firstname.$error.minlength">Too short. Min 2 characters</p>
+					<p class="error" ng-show="formContact.firstname.$error.maxlength">Too long. Max 20 characters</p>
+			    </div>
+
+			<!-- Last Name -->
+		        <label>Last Name *</label>
+		        <input class="form-control" 
+			        type="text"
+		    	    name="lastname" 
+		   		    ng-model="user.lastname" 
+		     	    ng-minlength="2" 
+		    	    ng-maxlength="20" 
+		    	    required />
+		        <br>
+ 				<div class="error-container" ng-show="(( formContact.lastname.$invalid && formContact.lastname.$dirty) || formContact.lastname.$pristine) && submitted ">
+					<p class="error" ng-show="formContact.lastname.$error.required">This field is required</p>
+					<p class="error" ng-show="formContact.lastname.$error.minlength">Too sort. Min 2 characters</p>
+					<p class="error" ng-show="formContact.lastname.$error.maxlength">Too long. Max 20 characters</p>
 				</div>
-		          <label>Last Name *</label>
-		          <input class="form-control"
-		                 type="text"      
-		                 name="lastname" 
-		                 ng-model="subscribe.lastname" 
-		                 ng-minlength=3 
-		                 ng-maxlength=20 
-		                 required />
-		          <br>
 
-		          <label>Email *</label>
-		          <input class="form-control"
-		                 type="email"                     
-		                 name="email" 
-		                 ng-model="subscribe.email" 
-		                 ng-minlength=5 
-		                 ng-maxlength=40 
-		                 required  />
-		          <p class="help-block" ng-if="userForm.email.$error.required">The user's email is required</p>
-		          <p class="help-block" ng-if="userForm.email.$error.email">The email address is invalid</p>    
+			<!-- Email -->
+		        <label>Email *</label>
+		        <input class="form-control"               	  type="email"                     
+		            name="email" 
+		            ng-model="user.email" 
+		            ng-minlength=5 
+		            ng-maxlength=40 
+		            required  />
 		          <br>
-		          <label>Phone</label>
-		          <input class="form-control"
-		                 type="text"      
-		                 name="phone" 
-		                 ng-model="subscribe.phone" 
-		                 ng-pattern="[0-9]"
-		                 ng-minlength=10 
-		                 ng-maxlength=15 
-		                 placeholder="Please use only numbers"/>
-		          <br><br>
-		           <label id="label-textarea">How can we help you? *</label>
-		          <textarea class="form-control"
-		                 name="comments" 
-		                 ng-model="subscribe.comments" 
-		                 ng-minlength=10
-		                 ng-maxlength=250 
-		                 width: 150px
-		                 height: 200px
-		                 placeholder="Max 250 characters"
-		                 required></textarea>
-		          <br>
+		          <div class="error-container" ng-show="((formContact.email.$invalid && formContact.email.$touched)||formContact.email.$pristine)  && submitted">
+		          <p class="error" ng-show="formContact.email.$error.required">This field is required</p>
+		          <p class="error" ng-show="formContact.email.$error.email">Email is invalid</p> 
+		         </div>
+
+		    <!-- Phone -->
+		        <label>Phone</label>
+		        <input class="form-control"
+		            type="text"      
+		            name="phone" 
+		            ng-model="user.phone" 
+		            ng-pattern="/[0-9]/"
+		            ng-minlength="9" 
+		            ng-maxlength="15" 
+		            placeholder="Only numbers" />
+		        <br>
+		        <div class="error-container" ng-show="((formContact.phone.$invalid && formContact.phone.$dirty)|| formContact.phone.$pristine) && submitted">
+		          <p class="error" ng-show="formContact.phone.$error.pattern">Phone can only contain numbers</p>
+		          <p class="error" ng-show="formContact.phone.$error.minlength">Min 9 characters</p>
+		          <p class="error" ng-show="formContact.phone.$error.maxlength">Max 15 characters</p>
+		        </div>
+		         
+
+		    <!-- Comments -->
+		        <label id="label-comments">How can we help you? *</label>
+		        <textarea class="form-control"
+		            name="comments" 
+		            ng-model="users.comments" 
+		            ng-minlength="10"
+		            ng-maxlength="250" 
+		            width= "150"
+		            height= "200"
+		            placeholder="Max 250 characters"
+		            required>
+		        </textarea>
+		        <br>
+		        <div class="error-container" ng-show="((formContact.comments.$invalid && formContact.comments.$dirty) ||formContact.comments.$pristine) && submitted">
+		          <p class="error" ng-show="formContact.comments.$error.required">This field is required</p>
+		          <p class="error" ng-show="formContact.comments.$error.minlength">Min 10 characters</p>
+		          <p class="error" ng-show="formContact.comments.$error.maxlength">Max 250 characters</p>
+		        </div>
 		          
-		          <div class="centered">
-		              <button class="btn btn-lg btn-danger">Send</button>
-		          </div>
-       			</form>
+		        <div class="centered">
+		            <button type="submit" class="btn btn-lg btn-danger" >Send</button>
+		        </div>
+		        <br/>
+   			</form>
+   			<!-- end form -->
    			</div>
-
+   			<!-- end form div-->
 		</div>
-		
+		<!-- end box -->
     </div>
-
+	<!-- End column -->
 
     <div class="col-md-6 col-md-offset-1" >
     	<h3>Location</h3>

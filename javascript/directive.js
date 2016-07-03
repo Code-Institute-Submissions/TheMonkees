@@ -28,6 +28,7 @@ angular.module('bandDirectives',[])
   //		};
 //	});
 
+
 // directive to make the map interactive
 .directive('makeMap', function() {
         var directive = {

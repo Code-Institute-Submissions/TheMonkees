@@ -35,17 +35,32 @@ angular.module("bandControllers",[])
 	.controller('FormNewsletterController',function($scope) {
 		$scope.user = {};
 	  	$scope.wasSubmitted = false;
-	  	$scope.submit = function() {
-	    	$scope.wasSubmitted = true;
-	  	};
+	  	//$scope.submit = function() {
+	   // 	$scope.wasSubmitted = true;
+	  	//};
 
 	})
+	//Controller for Form in Contact Us page
 	.controller('FormContactUsController',function($scope) {
-		$scope.user = {};
-	  	$scope.wasSubmitted = false;
-	  	$scope.formContactus = function() {
-	    	$scope.wasSubmitted = true;
-	  	};
+		$scope.user = {}; //inisialise user to store values
+	  	$scope.submit = function(form) { //when submit is clicked
+	    	$scope.submitted = false; 
+	    	
+	    	if (form.$valid) {
+                 $scope.submitted = true;
+                 //Show success message
+                 document.getElementById("form-contactus-success").setAttribute("class", "show");
+                // console.log("Form Valid");
+                //$scope.user = {}; reset the form
+                //return; return from function
+
+            } else {
+               // console.log("form is invalid");
+                $scope.submitted = true;
+				
+            }
+	  	}  
+
 	})
 	
 	//Controller for audio player
