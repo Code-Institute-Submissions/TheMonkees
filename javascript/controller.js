@@ -13,7 +13,8 @@ angular.module("bandControllers",[])
 	})
 	.controller('BookBandController', function($scope) {
 	  $scope.title = "Book The Band";
-	})
+	 })
+	
 	.controller('UpcomingGigsController', function($scope) {
 	  $scope.title = "Upcoming Gigs";
 	})
@@ -27,8 +28,6 @@ angular.module("bandControllers",[])
         	width: 500,
         	height: 400      
         };
-
- 
 	})
 
 	// Controller for newsletter subscribe form
@@ -62,6 +61,7 @@ angular.module("bandControllers",[])
 	  	}  
 
 	})
+
 	
 	//Controller for audio player
 	.controller('AudioPlayer',function($scope){
@@ -154,25 +154,83 @@ angular.module("bandControllers",[])
 	
 	})
 
-// Controller for iTunes search API
-	// Not working
-	.controller('ITunesListController',function($scope, $http) {
-	 	$scope.loading = true;
-		 //$scope.title = 'title'
-	 	var url = 'https://itunes.apple.com/search?term=the+monkees';
-	 	$scope.iTunesList = [];
+
+	//Dates the Band is booked
+.controller('BookedDatesController', function($scope, sharedBookedDates){
+
+	 var booked=sharedBookedDates.getBooked(); //Take dates from service
+		$scope.bookedVisual=[]; 
+		for (date in booked ){	
+		//converts to an array of objects with year, month, day to show
+				$scope.bookedVisual[date]={
+				year: booked[date].getFullYear(),
+				month: booked[date].getMonth()+1,
+				day: booked[date].getDate()
+			};
+
+		};
+		
+
+	})
+	//Controller for Form to book theBand
+	.controller('FormBookUsController',function($scope, $filter) {
+		$scope.user = {}; //inisialise user to store values
 	 
-	 	iTunesListService.getList('https://itunes.apple.com/search?term=the+monkees')
-	 		.then(
-	      		function(result){
-	          		$scope.iTunesList = result.data.results; /*res.filter(function(val){return val !== null});;*/
-	          		$scope.loading = false;
-	      		}
-	      	).catch(
-	        	function(error) { 
-	        		console.log('error', error)
-	        	}
-	        );
+	 //I woudl like to do the min an max date dynamic. 
+	 //e.g. from today to 1 year from today
+
+	 	//$scope.currentdate = new Date();
+	  //	var dd = currentdate.getDate();
+		//var mm = currentdate.getMonth()+1; //January is 0!
+		//var yyyy = currentdate.getFullYear();
+
+		//$scope.todaystr=yyyy+"-"+mm+"-"+dd;
+	  	
+    	//	$scope.todayDate = $filter("date")(Date.now(), 'yyyy-MM-dd');
+    	
+
+	  	$scope.submit = function(form) { //when submit is clicked
+	    
+	    	$scope.submitted = false; 
+	    	//add code to check if the date selected is already booked.
+
+
+	    	if (form.$valid) {
+                 $scope.submitted = true;
+                 //Show success message
+                 document.getElementById("form-bookus-success").setAttribute("class", "show");
+                // console.log("Form Valid");
+                //$scope.user = {}; reset the form
+                //return; return from function
+            } else {
+               // console.log("form is invalid");
+                $scope.submitted = true;
+            }
+	  	}  
+
+		
 	})
 
+
+
+// Controller for iTunes search API
+	
+	.controller('ITunesListController',function($scope, $http) {
+	 //	$scope.loading = true;
+		 //$scope.title = 'title'
+	 //	var url = 'https://itunes.apple.com/search?term=the+monkees';
+	// 	$scope.iTunesList = [];
+	 
+	// 	iTunesListService.getList('https://itunes.apple.com/search?term=the+monkees')
+	// 		.then(
+	 //     		function(result){
+	//          		$scope.iTunesList = result.data.results; /*res.filter(function(val){return val !== null});;*/
+	 //         		$scope.loading = false;
+	//      		}
+	//      	).catch(
+	 //       	function(error) { 
+	//        		console.log('error', error)
+	//        	}
+	//        );
+	})
 

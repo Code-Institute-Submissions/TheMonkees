@@ -247,27 +247,27 @@ border: 1px solid #ccc;
 
 /* Form Contact Us */
 
-#form-contactus-success{
+#form-contactus-success, #form-bookus-success{
 	color: #009933;
 }
 
-#form-contactus textarea{
+#form-contactus textarea, #form-bookus textarea{
       width: 300px;
       height: 200px;
       display: inline-block;
 
  }
 
-#form-contactus input {
+#form-contactus input, #form-bookus input {
 	width: 300px; 
 	display: inline-block;
 }
 
-#form-contactus label{
+#form-contactus label, #form-bookus label{
 	width: 100px;
 	display: inline-block;
 }	
-#label-comments{
+#label-comments, #label-comments1{
 	vertical-align: top;
 	width: 200px;
 }

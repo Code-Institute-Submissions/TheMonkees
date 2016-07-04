@@ -1,14 +1,145 @@
 <div class="container">
 <div class="row">
-<div class="col-md-12 ">
-<h1 class="page-title">{{title}}</h1>
+	<div class="col-md-12 ">
+		<h1 class="page-title">{{title}}</h1>
+	</div>
 </div>
+<div class="row" >
+	<div class="col-md-6 ">
+		 
+	    <div id="bookus" class="box3">
+    		
+    	<!-- Form div -->
+   		<div ng-controller="FormBookUsController" >
+			<!-- Form -->
+   			<form id="form-bookus" name="formBook" ng-submit="submit(formBook)" novalidate>
+      			<legend><h2>Book the Band form</h2></legend>
+      			<!-- Success message appears when the form is submitted and valid -->
+      			 <h3 id="form-bookus-success" class="form-success hidden">   
+		     Thank you for your enquire. We will get in touch in 48 hours.
+				</h3>
+				<!-- End success message -->
+			<!-- First Name -->
+			<p>* Required fields</p>
+		        <label>First Name *</label>
+		        <input class="form-control" 
+		     	   type="text" 
+			   	    name="firstname" 
+			   	    ng-model="user.firstname"
+			        ng-minlength="2" 
+			        ng-maxlength="20"  
+			        required />
+		        <br>
+		        <!-- Error messages   -->
+		        <div class="error-container" ng-show="((formBook.firstname.$invalid && formBook.firstname.$dirty) || formBook.firstname.$pristine) && submitted ">
+					<p class="error" ng-show="formBook.firstname.$error.required">This field is required</p>
+					<p class="error" ng-show="formBook.firstname.$error.minlength">Too short. Min 2 characters</p>
+					<p class="error" ng-show="formBook.firstname.$error.maxlength">Too long. Max 20 characters</p>
+			    </div>
+
+			<!-- Last Name -->
+		        <label>Last Name *</label>
+		        <input class="form-control" 
+			        type="text"
+		    	    name="lastname" 
+		   		    ng-model="user.lastname" 
+		     	    ng-minlength="2" 
+		    	    ng-maxlength="20" 
+		    	    required />
+		        <br>
+ 				<div class="error-container" ng-show="(( formBook.lastname.$invalid && formBook.lastname.$dirty) || formBook.lastname.$pristine) && submitted ">
+					<p class="error" ng-show="formBook.lastname.$error.required">This field is required</p>
+					<p class="error" ng-show="formBook.lastname.$error.minlength">Too sort. Min 2 characters</p>
+					<p class="error" ng-show="formBook.lastname.$error.maxlength">Too long. Max 20 characters</p>
+				</div>
+
+			<!-- Email -->
+		        <label>Email *</label>
+		        <input class="form-control"               	  type="email"                     
+		            name="email" 
+		            ng-model="user.email" 
+		            ng-minlength=5 
+		            ng-maxlength=40 
+		            required  />
+		          <br>
+		          <div class="error-container" ng-show="((formBook.email.$invalid && formBook.email.$touched)||formBook.email.$pristine)  && submitted">
+		          <p class="error" ng-show="formBook.email.$error.required">This field is required</p>
+		          <p class="error" ng-show="formBook.email.$error.email">Email is invalid</p> 
+		         </div>
+
+		    <!-- Phone -->
+		        <label>Phone</label>
+		        <input class="form-control"
+		            type="text"      
+		            name="phone" 
+		            ng-model="user.phone" 
+		            ng-pattern="/[0-9]/"
+		            ng-minlength="9" 
+		            ng-maxlength="15" 
+		            placeholder="Only numbers" />
+		        <br>
+		        <div class="error-container" ng-show="((formBook.phone.$invalid && formBook.phone.$dirty)|| formBook.phone.$pristine) && submitted">
+		          <p class="error" ng-show="formBook.phone.$error.pattern">Phone can only contain numbers</p>
+		          <p class="error" ng-show="formBook.phone.$error.minlength">Min 9 characters</p>
+		          <p class="error" ng-show="formBook.phone.$error.maxlength">Max 15 characters</p>
+		        </div>
+		        
+		     <!-- Date-->
+		     <label>Booking Date* </label>
+
+		     	<input class="form-control" type="date" id="date" name="date" ng-model="user.date" placeholder="dd/mm/yy" min="2016-07-01" max="2017/12/31" required /><br />
+				<div class="error-container" ng-show="((formBook.date.$invalid && formBook.date.$dirty)|| formBook.date.$pristine) && submitted">
+		          <p class="error" ng-show="formBook.date.$error.required">This field is required</p>
+		          <p class="error" ng-show="formBook.date.$error.min">From 01/07/2016 to 31/12/2017</p>
+		          <p class="error" ng-show="formBook.date.$error.max">From 01/07/2016 to 31/12/2017</p>
+		          
+		        </div>
+
+		    <!-- Comments -->
+		        <label id="label-comments1">Comments *</label>
+		        <textarea class="form-control"
+		            name="comments" 
+		            ng-model="user.comments" 
+		            ng-minlength="10"
+		            ng-maxlength="250" 
+		            width= "150"
+		            height= "200"
+		            placeholder="Max 250 characters"
+		            required>
+		        </textarea>
+		        <br>
+		        <div class="error-container" ng-show="((formBook.comments.$invalid && formBook.comments.$dirty) ||formBook.comments.$pristine) && submitted">
+		          <p class="error" ng-show="formBook.comments.$error.required">This field is required</p>
+		          <p class="error" ng-show="formBook.comments.$error.minlength">Min 10 characters</p>
+		          <p class="error" ng-show="formBook.comments.$error.maxlength">Max 250 characters</p>
+		        </div>
+		          
+		        <div class="centered">
+		            <button type="submit" class="btn btn-lg btn-danger" >Send</button>
+		        </div>
+		        <br/>
+   			</form>
+   			<!-- end form -->
+   			</div>
+   			<!-- end form div-->
+		</div>
+	</div>
+	<div class="col-md-6" ng-controller="BookedDatesController">
+
+		<h3>Dates already booked: </h3>
+		<div ng-repeat="date in bookedVisual">
+		<!--it'll be nice to show on a calendar-->
+			<h3>{{date.day}}/{{date.month}}/{{date.year}}</h3>
+		</div>
+		<br /><br /><br />
+	</div>
+	
+
 </div>
 
 
 
-
-
-
-
 </div>
+
+
+

@@ -1,4 +1,4 @@
-angular.module("bandApp",["ngRoute","bandControllers","bandDirectives"])
+angular.module("bandApp",["ngRoute","bandControllers","bandDirectives", "bandServices"])
 .config(function($routeProvider){
 	$routeProvider
 	.when("/",{
