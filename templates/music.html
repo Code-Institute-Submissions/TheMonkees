@@ -14,6 +14,7 @@
 			<h4>Now playing: {{song.title}}</h4> <!-- updates with the current song-->
 			
 			<img id="song-cover" alt="cover" />
+			
 			<audio controls preload="auto" >
   				<source type="audio/mp3" >
   				Your browser does not support the audio tag.
@@ -36,7 +37,7 @@
 			
 		</div>
 	</div>
-
+<div class="col-md-1 "></div>
 <!-- Video Player-->
 	<div class="col-md-5 ">
 		<h2>Featured Video</h2>
@@ -46,7 +47,7 @@
 			</video>
 		</div>
 	</div>
-	<div class="col-md-1 "></div>
+	
 </div>
 
 
@@ -55,24 +56,91 @@
 <div class="row">
 	
 </div>
-
-<!-- I want to use iTunes Search API here
 <div class="row">
-	<div class="col-md-12">
-		See list in itunes
-		<p><a class="btn btn-primary btn-lg" href="">Search in iTunes</a></p>
+<div class="col-md-12">&nbsp;</div></div>
+<div class="row">
+<div class="col-md-12">&nbsp;</div></div>
 
-		<div ng-controller='ITunesListController'>
-			<div class="repeat" ng-repeat="track in iTunesList">
-				<div class="col-md-2 col-sm-4 col-xs-6">
-					<a href="#//{{track.id}}">
-						<track-info-box info="track"></track-info-box>
-					</a>
-				</div>
+<!-- iTunes Search API -->
+<div class="row">
+	<div class="col-md-12" ng-controller='ITunesListController'>
+	<h2>Get our tracks in iTunes</h2>
+		
+		<!-- Buttons to show and close the search -->
+		<p><br />
+		<!-- Call function iTunes in the Controller to start the search-->
+			<button id="search-the-monkees" class="btn btn-danger btn-lg" ng-click="itunes()">Search "The Monkees" in iTunes</button>
+
+			<!-- Hides the search -->
+			<button id="close-the-monkees" class="btn btn-warning btn-lg hidden" ng-click="closeSearch()">Close search</button>
+		</p>
+		<h3 id="itunesError" class="hidden error">There was an error with this search.</h3>
+		<!-- Search Hidden at the beginning -->
+		<div id="itunes-search" class="hidden">
+			<h3><a href="" target="_blank"> The Monkees</a></h3>
+		
+		<div >
+			<!-- table to show results -->
+			<table>
+			<thead id="itunes-header">
+			<tr>
+				<td class="col-md-2 col-sm-2 col-xs-1">Album Art</td > 
+
+				<td class="col-md-3 col-sm-2 col-xs-2">Album</td> 
+
+				<td class="col-md-4 col-sm-2 col-xs-2">Track</td>
+				
+				<td class="col-md-1 col-sm-2 col-xs-2">Preview</td> 
+				<td  class="col-md-2 col-sm-2 col-xs-2">Price</td> 
+				</tr>
+			</thead>
+			<tbody>
+
+			<tr class="repeat" ng-repeat="track in iTunesList" id="itunes-results">
+				<!-- Album cover -->
+				<td><a href="{{track.collectionViewUrl}}" target="_blank"><img class="itunes-search-img "ng-src="{{track.artworkUrl100}}" /></a></td>
+				<!-- Album name -->
+				<td><a href="{{track.collectionViewUrl}}" target="_blank">{{track.collectionName}}</a></td>
+				<!-- Song name -->
+				<td><a href="{{track.trackViewUrl}}" target="_blank">{{track.trackName}}</a> </td>
+				<!-- play song preview link -->
+				<td><a href="{{track.previewUrl}}" target="_blank">Play <span class="glyphicon glyphicon-play"></span></a></td>
+				<!-- Price -->
+				<td><a href="{{track.trackViewUrl}}" target="_blank">${{track.trackPrice}}</a></td>
+			</tr>
+			</tbody>
+			</table>
+			
+				<!--<div class="row" id="itunes-header">
+				<div class="col-md-2">Album Art<br /><br /></div>
+
+				<div class="col-md-3">Album</div>
+
+				<div class="col-md-4">Track</div>
+				
+				<div class="col-md-1">Preview</div>
+				<div class="col-md-2">Price</div>
+			</div>-->
+<!--<div class="row">
+						<div class="col-md-2"><a href="{{track.collectionViewUrl}}" target="_blank"><img ng-src="{{track.artworkUrl100}}" /></a></div>
+
+						<div class="col-md-3"><a href="{{track.collectionViewUrl}}" target="_blank">{{track.collectionName}}</a></div>
+
+						<div class="col-md-4"><a href="{{track.trackViewUrl}}" target="_blank">{{track.trackName}}</a> </div>
+
+						<div class="col-md-1"><a href="{{track.previewUrl}}" target="_blank"> Play</a></div>
+				
+						<div class="col-md-2"><a href="{{track.trackViewUrl}}" target="_blank">${{track.trackPrice}}</a></div>
+				</div>-->
+						<!--<track-info-box info="track"></track-info-box>-->
+					
+				
+			</div>
 			</div>
 		</div>
 	</div>
-</div>-->
+	<br /><br /><br /><br /><br /><br />
+</div>
 
 </div>
 </div>

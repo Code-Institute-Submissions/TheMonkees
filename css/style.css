@@ -328,4 +328,41 @@ border: 1px solid #ccc;
     opacity: 0.8;
 }
 
+#itunes-search{
+	border: 1px solid #E74C3C;
+	/*border-radius: 10px;*/
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	padding: 10px;
+	margin: 10px 5px;
+	text-align: center;
+	box-shadow: 10px 10px 25px #888888;
+}
 
+#itunes-header{
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+	padding-bottom: 20px
+
+}
+#itunes-results td{
+	padding: 5px;
+	font-size: 16px;
+}
+
+@media screen and (max-width: 699px) and (min-width: 520px) {
+    .itunes-search-img {
+        width: 50%;
+    }
+    #itunes-results td{
+		font-size: 14px;
+	}
+	#itunes-header{
+		font-size: 18px;
+	
+
+	}
+}
+Try it Yourself »

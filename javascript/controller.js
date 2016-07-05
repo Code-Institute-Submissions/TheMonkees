@@ -224,23 +224,44 @@ angular.module("bandControllers",[])
 
 
 // Controller for iTunes search API
-	
-	.controller('ITunesListController',function($scope, $http) {
-	 //	$scope.loading = true;
-		 //$scope.title = 'title'
-	 //	var url = 'https://itunes.apple.com/search?term=the+monkees';
-	// 	$scope.iTunesList = [];
-	 
-	// 	iTunesListService.getList('https://itunes.apple.com/search?term=the+monkees')
-	// 		.then(
-	 //     		function(result){
-	//          		$scope.iTunesList = result.data.results; /*res.filter(function(val){return val !== null});;*/
-	 //         		$scope.loading = false;
-	//      		}
-	//      	).catch(
-	 //       	function(error) { 
-	//        		console.log('error', error)
-	//        	}
-	//        );
+	//need to pass the service needed in the function (iTunesService)
+	.controller('ITunesListController',function($scope, $http, iTunesListService) {
+	 	$scope.loading = true;
+		//var url to store the search url
+		 //need to add &callback_JSON_CALLBACK to url
+	 	var url = 'https://itunes.apple.com/search?term=the+monkees&callback=JSON_CALLBACK';
+	 	
+	 	$scope.iTunesList = []; //initialise object to store the results
+	 	//called when the button is clicked
+	 	$scope.itunes = function (){
+	 		//call the service to get the json results
+		 	iTunesListService.getList(url) 
+		 		.then( // when it is ready..
+		      		function(result){
+		    			//store results in our $scope to use it in template
+		         		$scope.iTunesList = result.data.results;
+		         		//click make search table show and button to close
+		         		document.getElementById("itunes-search").setAttribute("class","show");
+		         		document.getElementById("search-the-monkees").setAttribute("class","hidden");
+		         		document.getElementById("close-the-monkees").setAttribute("class","show btn btn-warning btn-lg");
+		         		$scope.loading = false;
+		      		}
+		      	).catch(
+		       	function(error) { 
+		       		//if there is an error show a message in the sccreen
+		       			document.getElementById("itunesError").setAttribute("class","show error");
+		        		console.log('error', error)
+		        	}
+	        );
+	    }
+	    //close the search and make search button appear.
+	    $scope.closeSearch = function(){
+	    	document.getElementById("itunes-search").setAttribute("class","hidden");
+	   		document.getElementById("search-the-monkees").setAttribute("class","show btn btn-danger btn-lg");
+	   		document.getElementById("close-the-monkees").setAttribute("class","hidden");
+	    }
+
 	})
+
+
 
