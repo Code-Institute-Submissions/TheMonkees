@@ -247,7 +247,7 @@ border: 1px solid #ccc;
 
 /* Form Contact Us */
 
-#form-contactus-success, #form-bookus-success{
+#form-contactus-success, #form-bookus-success, #form-newsletter-success{
 	color: #009933;
 }
 

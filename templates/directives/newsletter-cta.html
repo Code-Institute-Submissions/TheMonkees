@@ -1,12 +1,16 @@
 
 <div class="box2" id="newsletter">
     <h3>Subscribe to our newsletter </h3>
-    <p>Register below and receive all news from The Monkees. </p>
+    <h3 id="form-newsletter-success" class="form-success hidden">   
+         Great! You will now receive all our news in your inbox!
+        </h3>
+        <p>Register below and receive all news from The Monkees. </p>
     <div class="clear"></div>
   
       <!-- Form -->
     <div ng-controller="FormNewsletterController">
-      <form id="form-newsletter" ng-submit="submit()" class="form-horizontal" novalidate>
+      <form id="form-newsletter" name="formNewsletter" ng-submit="submit(formNewsletter)" class="form-horizontal" novalidate>
+       
           <label>Firstname</label>
           <input class="form-control"
                  type="text"      
@@ -16,6 +20,13 @@
                  ng-maxlength=20 
                  required />
           <br>
+           <!-- Error messages   -->
+            <div class="error-container" ng-show="((formNewsletter.firstname.$invalid && formNewsletter.firstname.$dirty) || formNewsletter.firstname.$pristine) && submitted ">
+          <p class="error" ng-show="formNewsletter.firstname.$error.required">This field is required</p>
+          <p class="error" ng-show="formNewsletter.firstname.$error.minlength">Too short. Min 2 characters</p>
+          <p class="error" ng-show="formNewsletter.firstname.$error.maxlength">Too long. Max 20 characters</p>
+          </div>
+
           <label>Email</label>
           <input class="form-control"
                  type="email"                     
@@ -24,9 +35,10 @@
                  ng-minlength=5 
                  ng-maxlength=40 
                  required  />
-          <p class="help-block" ng-if="userForm.email.$error.required">The user's email is required</p>
-          <p class="help-block" ng-if="userForm.email.$error.email">The email address is invalid</p>    
-          <br>
+         <div class="error-container" ng-show="((formNewsletter.email.$invalid && formNewsletter.email.$touched)||formNewsletter.email.$pristine)  && submitted">
+              <p class="error" ng-show="formNewsletter.email.$error.required">This field is required</p>
+              <p class="error" ng-show="formNewsletter.email.$error.email">Email is invalid</p> 
+             </div>
           <div class="centered">
               <button class="btn btn-lg btn-danger">Subscribe</button>
           </div>

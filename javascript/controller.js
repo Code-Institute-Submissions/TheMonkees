@@ -33,10 +33,20 @@ angular.module("bandControllers",[])
 	// Controller for newsletter subscribe form
 	.controller('FormNewsletterController',function($scope) {
 		$scope.user = {};
-	  	$scope.wasSubmitted = false;
-	  	//$scope.submit = function() {
-	   // 	$scope.wasSubmitted = true;
-	  	//};
+	  	$scope.submit = function(form) { //when submit is clicked
+	    	$scope.submitted = false; 
+	    	
+	    	if (form.$valid) {
+                 $scope.submitted = true;
+                 //Show success message
+                 document.getElementById("form-newsletter-success").setAttribute("class", "show");
+
+            } else {
+               // console.log("form is invalid");
+                $scope.submitted = true;
+				
+            }
+	  	}  
 
 	})
 	//Controller for Form in Contact Us page
