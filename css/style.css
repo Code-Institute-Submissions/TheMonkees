@@ -365,4 +365,23 @@ border: 1px solid #ccc;
 
 	}
 }
-Try it Yourself »
+/* Fade transition for carousel items */
+.carousel-fade  .carousel-inner .item {
+            transition-property: opacity;
+        }
+ .carousel-fade .carousel-inner .item,
+ .carousel-fade .carousel-inner .active.left,
+ .carousel-fade .carousel-inner.active.right {
+            opacity: 0.3;
+        }
+.carousel-fade .carousel-inner .active, 
+.carousel-fade .carousel-inner .next.left, 
+.carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+    
+.carousel-fade .carousel-control {
+        z-index: 2;
+    }
+
+
