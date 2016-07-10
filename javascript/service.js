@@ -3,11 +3,35 @@ angular.module('bandServices',[])
 //Creates a var with the dates the Band is booked
 .service('sharedBookedDates', function () {
 	//Months start in 0 (January = 0, Feb = 1...)
-    var booked=[new Date (2016,06,20), 
-    			new Date (2016, 07, 02), 
-    			new Date (2016, 08, 15)];
+    
+	var booked=[{when: new Date (2016,08,23),
+    			where: "Wheelans, Dublin",
+    			info: "www.wheelans.ie"
+    			},{
+    				when: new Date (2016, 09, 02),
+    				where: "Private Event",
+    				info: "No info available."
+    			},{
+    				when: new Date (2016, 10, 21),
+    				where: "Mezz, Dublin",
+    				info: "www.mezz.ie"
+    				}
+    			];
 		
+
+		for (gig in booked ){	
+			//converts to an array of objects with year, month, day to show
+			booked[gig].visualDate={
+				year: booked[gig].when.getFullYear(),
+				month:booked[gig].when.getMonth()+1,
+				day: booked[gig].when.getDate()
+			};
+			//console.log($scope.booked[i].visualDate.day);
+			
+		};
 		
+
+
         return {
             getBooked: function () {
               return booked;

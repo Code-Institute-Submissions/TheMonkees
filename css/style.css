@@ -71,6 +71,10 @@ band-nav .list-inline>li> a {
 } 
 #bandNav .list-inline>li>a:focus{ /* red when on that page. doesn't work in gigs */
 	color: #E74C3C;
+}
+
+.red-text{
+	color: #E74C3C;
 } 
 
 band-nav .list-inline .dropdown-menu{ /*  */
@@ -157,6 +161,28 @@ Grey buy default. colored when hovering */
     background-image: none;
     opacity: 1;
 }
+
+/* Fade transition for carousel items */
+.carousel-fade  .carousel-inner .item {
+            transition-property: opacity;
+        }
+ .carousel-fade .carousel-inner .item,
+ .carousel-fade .carousel-inner .active.left,
+ .carousel-fade .carousel-inner.active.right {
+            opacity: 0.3;
+        }
+.carousel-fade .carousel-inner .active, 
+.carousel-fade .carousel-inner .next.left, 
+.carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+    
+.carousel-fade .carousel-control {
+        z-index: 2;
+    }
+
+
+
 
 /*###################################*/
 /* Grey info boxes */
@@ -365,23 +391,4 @@ border: 1px solid #ccc;
 
 	}
 }
-/* Fade transition for carousel items */
-.carousel-fade  .carousel-inner .item {
-            transition-property: opacity;
-        }
- .carousel-fade .carousel-inner .item,
- .carousel-fade .carousel-inner .active.left,
- .carousel-fade .carousel-inner.active.right {
-            opacity: 0.3;
-        }
-.carousel-fade .carousel-inner .active, 
-.carousel-fade .carousel-inner .next.left, 
-.carousel-fade .carousel-inner .prev.right {
-            opacity: 1;
-        }
-    
-.carousel-fade .carousel-control {
-        z-index: 2;
-    }
-
 

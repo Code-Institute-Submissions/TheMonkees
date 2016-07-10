@@ -7,7 +7,7 @@
 <div class="row" >
 	<div class="col-md-6 ">
 		 
-	    <div id="bookus" class="box3">
+	    <div id="bookus" class="box2">
     		
     	<!-- Form div -->
    		<div ng-controller="FormBookUsController" >
@@ -124,14 +124,20 @@
    			<!-- end form div-->
 		</div>
 	</div>
-	<div class="col-md-6" ng-controller="BookedDatesController">
-
-		<h3>Dates already booked: </h3>
-		<div ng-repeat="date in bookedVisual">
-		<!--it'll be nice to show on a calendar-->
-			<h3>{{date.day}}/{{date.month}}/{{date.year}}</h3>
+	<div class="col-md-1"></div>
+	<div class="col-md-4" ng-controller="BookedDatesController">
+		<h2>Upcoming Gigs: </h2>
+		<div ng-repeat="gig in booked" class="box3">
+			
+			<h3>When: {{gig.visualDate.day}}/{{gig.visualDate.month}}/{{gig.visualDate.year}}</h3>
+			<p>Where: {{gig.where}}</p>
+			<p>More info: <a href="{{gig.info}}">{{gig.info}}</a> 
+			</p>
+			
 		</div>
 		<br /><br /><br />
+		
+		
 	</div>
 	
 

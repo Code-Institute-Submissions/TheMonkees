@@ -167,38 +167,16 @@ angular.module("bandControllers",[])
 
 	//Dates the Band is booked
 .controller('BookedDatesController', function($scope, sharedBookedDates){
+	$scope.booked =[];
+	 $scope.booked=sharedBookedDates.getBooked(); //Take dates from service
+})
 
-	 var booked=sharedBookedDates.getBooked(); //Take dates from service
-		$scope.bookedVisual=[]; 
-		for (date in booked ){	
-		//converts to an array of objects with year, month, day to show
-				$scope.bookedVisual[date]={
-				year: booked[date].getFullYear(),
-				month: booked[date].getMonth()+1,
-				day: booked[date].getDate()
-			};
 
-		};
-		
 
-	})
 	//Controller for Form to book theBand
 	.controller('FormBookUsController',function($scope, $filter) {
 		$scope.user = {}; //inisialise user to store values
-	 
-	 //I woudl like to do the min an max date dynamic. 
-	 //e.g. from today to 1 year from today
-
-	 	//$scope.currentdate = new Date();
-	  //	var dd = currentdate.getDate();
-		//var mm = currentdate.getMonth()+1; //January is 0!
-		//var yyyy = currentdate.getFullYear();
-
-		//$scope.todaystr=yyyy+"-"+mm+"-"+dd;
-	  	
-    	//	$scope.todayDate = $filter("date")(Date.now(), 'yyyy-MM-dd');
     	
-
 	  	$scope.submit = function(form) { //when submit is clicked
 	    
 	    	$scope.submitted = false; 
@@ -262,6 +240,8 @@ angular.module("bandControllers",[])
 	    }
 
 	})
+
+
 
 
 
