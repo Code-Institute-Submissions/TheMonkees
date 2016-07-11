@@ -154,22 +154,15 @@ angular.module("bandControllers",[])
 				playlistPlayer.pause();
 				document.getElementById("error-song").setAttribute("class", "show");	
 			}		
-
-		}
-
-		
-		//document.getElementById('Daydream-Believer').addEventListener('click', function () {
-		//	playThis("Daydream Believer")
-		//}, false);	
-	
+		}	
 	})
 
 
-	//Dates the Band is booked
-.controller('BookedDatesController', function($scope, sharedBookedDates){
-	$scope.booked =[];
-	 $scope.booked=sharedBookedDates.getBooked(); //Take dates from service
-})
+	//Dates the Band is booked. Get info from service
+	.controller('BookedDatesController', function($scope, sharedBookedDates){
+		$scope.booked =[];
+		$scope.booked=sharedBookedDates.getBooked(); //Take dates from service
+	})
 
 
 

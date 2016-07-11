@@ -17,19 +17,16 @@ angular.module("bandApp",["ngRoute","bandControllers","bandDirectives", "bandSer
 	.when("/music",{
 		templateUrl: "templates/music.html",
 		controller: "MusicController"
-//test for iTunes API
-//		templateUrl: "templates/iTunes-search.html",
-//		controller: "ITunesListController"
-
 	})	
 	.when("/book-band",{
 		templateUrl: "templates/book-band.html",
 		controller: "BookBandController"
 	})
-	.when("/upcoming-gigs",{
-		templateUrl: "templates/upcoming-gigs.html",
-		controller: "UpcomingGigsController"
-	})
+	// Will use it if need a separate page
+	//.when("/upcoming-gigs",{
+	//	templateUrl: "templates/upcoming-gigs.html",
+	//	controller: "UpcomingGigsController"
+	//})
 	.when("/contact",{
 		templateUrl:"templates/contact.html",
 		controller:"ContactController"

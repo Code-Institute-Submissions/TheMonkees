@@ -126,28 +126,21 @@
    			<!-- end form div-->
 		</div>
 	</div>
-	
+	<!-- Upcoming gigs / right column
+	Uses booked dates controller to get the gigs already booked -->
 	<div class="col-md-7" ng-controller="BookedDatesController">
 		<h2>Upcoming Gigs: </h2>
+		<!-- Shows each gig already booked - gigs info in service "sharedBookedDates"-->
 		<div ng-repeat="gig in booked" class="box1 col-md-5">
 			<h3>{{gig.visualDate.day}}/{{gig.visualDate.month}}/{{gig.visualDate.year}}</h3>
 			<img ng-src="{{gig.image}}" height="100px" />
 			<h4>{{gig.where}}</h4>
 			<p>More info: <a href="{{gig.info}}">{{gig.info}}</a> 
 			</p>
-			
-			
 		</div>
 		<br /><br /><br />
-		
-		
 	</div>
-	
-
 </div>
-
-
-
 </div>
 
 

@@ -69,7 +69,7 @@ band-nav .list-inline>li> a {
   color: #E74C3C;
   
 } 
-#bandNav .list-inline>li>a:focus{ /* red when on that page. doesn't work in gigs */
+#bandNav .list-inline>li>a:focus{ /* red when on that page.  */
 	color: #E74C3C;
 }
 
@@ -90,26 +90,13 @@ band-nav .list-inline .dropdown-menu>li>a:hover{ /* Highlight dropdown when hove
 	background-color: #424949;
 }
 
-
+/*Doesn't work using directive instead of id*/
 #bandNav .list-inline>.open>a,  /* first level stays red when opening dropdown */
 #bandNav .list-inline>.open>a:focus, 
 #bandNav .list-inline>.open>a:hover {
 	color: #E74C3C;
 }
 
-footer .list-inline>li, footer .list-inline>li>a{
-	padding: 0;
-	display: inline;
-	color: #9d9d9d;
-}
-#copyright {
-	padding-top: 10px;
-}
-
-/*
-band-nav .list-inline>li > a:focus { 
-	background-color: #E74C3C; 
-}*/
 
 band-nav .navbar-brand {
   padding: 0px; 
@@ -121,6 +108,15 @@ band-nav .navbar-brand>img { /* logo */
   width: auto;
 }
 
+footer .list-inline>li, footer .list-inline>li>a{
+	padding: 0;
+	display: inline;
+	color: #9d9d9d;
+}
+
+#copyright {
+	padding-top: 10px;
+}
 /*###################################*/
 /*social media buttons in navigation bar
 Grey buy default. colored when hovering */
@@ -361,6 +357,9 @@ border: 1px solid #ccc;
     padding: 4px 8px;
     opacity: 0.8;
 }
+
+/*###################################*/
+/*iTunes Seach section */
 
 #itunes-search{
 	border: 1px solid #E74C3C;

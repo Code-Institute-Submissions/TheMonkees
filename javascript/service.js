@@ -23,36 +23,27 @@ angular.module('bandServices',[])
     				where: "Private Event",
     				info: "No info available",
     				image: "/images/corporate.png"
-    			}
-
-    			];
+    			}];
 		
-
+		//converts each date into an array of objects with year, month, day to show
 		for (gig in booked ){	
-			//converts to an array of objects with year, month, day to show
 			booked[gig].visualDate={
 				year: booked[gig].when.getFullYear(),
 				month:booked[gig].when.getMonth()+1,
 				day: booked[gig].when.getDate()
-			};
-			//console.log($scope.booked[i].visualDate.day);
-			
+			};			
 		};
 		
-
-
         return {
             getBooked: function () {
               return booked;
            }
-            //addBooked: function(newDate) {
-            //	add code to push into the array
-            //}
         };
  })
 
+//service that pull the list from iTunes and send it back to controller
 .service('iTunesListService',function($http) {
- //get list itunes search - not working yet
+
    return  { getList: getList };
  
     function getList(url){
