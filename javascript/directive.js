@@ -7,6 +7,14 @@ angular.module('bandDirectives',[])
 	'templateUrl':'templates/directives/bandNav.html'
 }
 })
+.directive('footer', function(){
+	return {
+	'restrict': 'E',
+	'scope': false,
+	'templateUrl':'templates/directives/footer.html'
+}
+})
+
 // Subscribe to Newsletter call to action box
 .directive('newsletterCta', function(){
 	return {

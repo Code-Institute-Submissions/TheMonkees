@@ -175,28 +175,20 @@ angular.module("bandControllers",[])
 
 	//Controller for Form to book theBand
 	.controller('FormBookUsController',function($scope, $filter) {
-		$scope.user = {}; //inisialise user to store values
-    	
+		$scope.user = {}; //inisialise user to store value
 	  	$scope.submit = function(form) { //when submit is clicked
-	    
 	    	$scope.submitted = false; 
 	    	//add code to check if the date selected is already booked.
-
-
 	    	if (form.$valid) {
                  $scope.submitted = true;
                  //Show success message
                  document.getElementById("form-bookus-success").setAttribute("class", "show");
-                // console.log("Form Valid");
                 //$scope.user = {}; reset the form
                 //return; return from function
             } else {
-               // console.log("form is invalid");
                 $scope.submitted = true;
             }
 	  	}  
-
-		
 	})
 
 
@@ -239,9 +231,5 @@ angular.module("bandControllers",[])
 	   		document.getElementById("close-the-monkees").setAttribute("class","hidden");
 	    }
 
-	})
-
-
-
-
+	});
 

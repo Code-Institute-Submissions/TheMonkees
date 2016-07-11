@@ -5,17 +5,26 @@ angular.module('bandServices',[])
 	//Months start in 0 (January = 0, Feb = 1...)
     
 	var booked=[{when: new Date (2016,08,23),
-    			where: "Wheelans, Dublin",
-    			info: "www.wheelans.ie"
+    			where: "Whelans, Dublin",
+    			info: "www.whelanslive.ie",
+    			image: "/images/whelans.jpg"
     			},{
     				when: new Date (2016, 09, 02),
     				where: "Private Event",
-    				info: "No info available."
+    				info: "No info available",
+    				image: "/images/wedding.png"
     			},{
     				when: new Date (2016, 10, 21),
     				where: "Mezz, Dublin",
-    				info: "www.mezz.ie"
-    				}
+    				info: "www.mezz.ie",
+    				image: "/images/mezz.jpg"
+    			},{
+    				when: new Date (2016, 11, 04),
+    				where: "Private Event",
+    				info: "No info available",
+    				image: "/images/corporate.png"
+    			}
+
     			];
 		
 

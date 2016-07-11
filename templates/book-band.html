@@ -2,10 +2,12 @@
 <div class="row">
 	<div class="col-md-12 ">
 		<h1 class="page-title">{{title}}</h1>
+	<h4>
+	Lorem ipsum dolor sit amet, pri et regione facilisi, minim voluptua dissentiunt an vix. Essent elaboraret in mei, ei sea veri postulant pertinacia. In ius facilisis dignissim, sea agam accusamus consequat cu. Nonumy concludaturque quo ea, pro recteque persequeris ad, noster omittam dissentiet vim an.</h4>
 	</div>
 </div>
 <div class="row" >
-	<div class="col-md-6 ">
+	<div class="col-md-5 ">
 		 
 	    <div id="bookus" class="box2">
     		
@@ -87,7 +89,7 @@
 		     <!-- Date-->
 		     <label>Booking Date* </label>
 
-		     	<input class="form-control" type="date" id="date" name="date" ng-model="user.date" placeholder="dd/mm/yy" min="2016-07-01" max="2017/12/31" required /><br />
+		     	<input class="form-control" type="date" id="date" name="date" ng-model="user.date" placeholder="31/12/16" min="2016-07-01" max="2017/12/31" required/><br />
 				<div class="error-container" ng-show="((formBook.date.$invalid && formBook.date.$dirty)|| formBook.date.$pristine) && submitted">
 		          <p class="error" ng-show="formBook.date.$error.required">This field is required</p>
 		          <p class="error" ng-show="formBook.date.$error.min">From 01/07/2016 to 31/12/2017</p>
@@ -124,15 +126,16 @@
    			<!-- end form div-->
 		</div>
 	</div>
-	<div class="col-md-1"></div>
-	<div class="col-md-4" ng-controller="BookedDatesController">
+	
+	<div class="col-md-7" ng-controller="BookedDatesController">
 		<h2>Upcoming Gigs: </h2>
-		<div ng-repeat="gig in booked" class="box3">
-			
-			<h3>When: {{gig.visualDate.day}}/{{gig.visualDate.month}}/{{gig.visualDate.year}}</h3>
-			<p>Where: {{gig.where}}</p>
+		<div ng-repeat="gig in booked" class="box1 col-md-5">
+			<h3>{{gig.visualDate.day}}/{{gig.visualDate.month}}/{{gig.visualDate.year}}</h3>
+			<img ng-src="{{gig.image}}" height="100px" />
+			<h4>{{gig.where}}</h4>
 			<p>More info: <a href="{{gig.info}}">{{gig.info}}</a> 
 			</p>
+			
 			
 		</div>
 		<br /><br /><br />

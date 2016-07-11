@@ -97,6 +97,14 @@ band-nav .list-inline .dropdown-menu>li>a:hover{ /* Highlight dropdown when hove
 	color: #E74C3C;
 }
 
+footer .list-inline>li, footer .list-inline>li>a{
+	padding: 0;
+	display: inline;
+	color: #9d9d9d;
+}
+#copyright {
+	padding-top: 10px;
+}
 
 /*
 band-nav .list-inline>li > a:focus { 
