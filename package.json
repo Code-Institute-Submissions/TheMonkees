@@ -1,9 +1,9 @@
 {
-  "name": "movies-db-app",
+  "name": "bandApp",
   "private": false,
   "version": "1.0.0",
-  "description": "A tutorial using the movies db api",
-  "repository": "https://github.com/lillylangtree/mdb-nav.git",
+  "description": "Project Stream 1 - Website for a Band",
+  "repository": "https://github.com/IreneG5/BandWebProject.git",
   "license": "MIT",
   "devDependencies": { 
     "http-server": "^0.6.1",
