@@ -22,11 +22,6 @@ angular.module("bandApp",["ngRoute","bandControllers","bandDirectives", "bandSer
 		templateUrl: "templates/book-band.html",
 		controller: "BookBandController"
 	})
-	// Will use it if need a separate page
-	//.when("/upcoming-gigs",{
-	//	templateUrl: "templates/upcoming-gigs.html",
-	//	controller: "UpcomingGigsController"
-	//})
 	.when("/contact",{
 		templateUrl:"templates/contact.html",
 		controller:"ContactController"
