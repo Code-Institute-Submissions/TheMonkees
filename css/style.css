@@ -225,7 +225,7 @@ Grey buy default. colored when hovering */
 }
 /*  */
 #newsletter::after { /* layer to make it transparent */
-	background-image: url(/images/email.png);
+	background-image: url(../images/email.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	content: "";
