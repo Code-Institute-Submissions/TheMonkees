@@ -74,7 +74,7 @@ angular.module("bandControllers",[])
 
 	
 	//Controller for audio player
-	.controller('AudioPlayer',function($scope){
+	.controller('AudioPlayerController',function($scope){
 
 		//Array with tracks: title, track source and cover src
 		var tracks = [

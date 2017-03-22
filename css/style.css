@@ -394,8 +394,30 @@ border: 1px solid #ccc;
 	}
 	#itunes-header{
 		font-size: 18px;
-	
+	}
 
+}
+
+@media screen and (max-width: 960px) and (min-width: 520px) {
+	.carousel-caption h1 {
+		font-size: 35px;
+	}
+	.carousel-caption h2 {
+		font-size: 20px;
+	}
+
+	band-nav .list-inline > li > a {
+		font-size: medium;
 	}
 }
 
+@media screen and (max-width: 519px) {
+	.carousel-caption h1 {
+		font-size: 25px;
+	}
+	.carousel-caption h2 {
+		font-size: 15px;
+	}
+
+
+}
