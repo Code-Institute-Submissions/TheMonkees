@@ -43,10 +43,8 @@ angular.module('bandServices',[])
 
 //service that pull the list from iTunes and send it back to controller
 .service('iTunesListService',function($http) {
-
    return  { getList: getList };
- 
-    function getList(url){
+     function getList(url){
 			return $http.jsonp(url);
         };
 })

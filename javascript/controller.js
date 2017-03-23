@@ -49,28 +49,7 @@ angular.module("bandControllers",[])
 	  	}  
 
 	})
-	//Controller for Form in Contact Us page
-	.controller('FormContactUsController',function($scope) {
-		$scope.user = {}; //inisialise user to store values
-	  	$scope.submit = function(form) { //when submit is clicked
-	    	$scope.submitted = false; 
-	    	
-	    	if (form.$valid) {
-                 $scope.submitted = true;
-                 //Show success message
-                 document.getElementById("form-contactus-success").setAttribute("class", "show");
-                // console.log("Form Valid");
-                //$scope.user = {}; reset the form
-                //return; return from function
 
-            } else {
-               // console.log("form is invalid");
-                $scope.submitted = true;
-				
-            }
-	  	}  
-
-	})
 
 	
 	//Controller for audio player
@@ -133,7 +112,7 @@ angular.module("bandControllers",[])
 			$scope.song=newTrack;
 		}
 
-		//$scope.play=AudioPlayerService.playThis(newSong)
+
 		// Play the new song when click in one in the list (ng-click)
 		$scope.playThis=function (newSong){
 			found=0;
@@ -156,35 +135,6 @@ angular.module("bandControllers",[])
 			}		
 		}	
 	})
-
-
-	//Dates the Band is booked. Get info from service
-	.controller('BookedDatesController', function($scope, sharedBookedDates){
-		$scope.booked =[];
-		$scope.booked=sharedBookedDates.getBooked(); //Take dates from service
-	})
-
-
-
-	//Controller for Form to book theBand
-	.controller('FormBookUsController',function($scope, $filter) {
-		$scope.user = {}; //inisialise user to store value
-	  	$scope.submit = function(form) { //when submit is clicked
-	    	$scope.submitted = false; 
-	    	//add code to check if the date selected is already booked.
-	    	if (form.$valid) {
-                 $scope.submitted = true;
-                 //Show success message
-                 document.getElementById("form-bookus-success").setAttribute("class", "show");
-                //$scope.user = {}; reset the form
-                //return; return from function
-            } else {
-                $scope.submitted = true;
-            }
-	  	}  
-	})
-
-
 
 // Controller for iTunes search API
 	//need to pass the service needed in the function (iTunesService)
@@ -224,5 +174,54 @@ angular.module("bandControllers",[])
 	   		document.getElementById("close-the-monkees").setAttribute("class","hidden");
 	    }
 
-	});
+	})
 
+
+	//Dates the Band is booked. Get info from service
+	.controller('BookedDatesController', function($scope, sharedBookedDates){
+		$scope.booked =[];
+		$scope.booked=sharedBookedDates.getBooked(); //Take dates from service
+	})
+
+
+
+	//Controller for Form to book theBand
+	.controller('FormBookUsController',function($scope, $filter) {
+		$scope.user = {}; //inisialise user to store value
+	  	$scope.submit = function(form) { //when submit is clicked
+	    	$scope.submitted = false;
+	    	//add code to check if the date selected is already booked.
+	    	if (form.$valid) {
+                 $scope.submitted = true;
+                 //Show success message
+                 document.getElementById("form-bookus-success").setAttribute("class", "show");
+                //$scope.user = {}; reset the form
+                //return; return from function
+            } else {
+                $scope.submitted = true;
+            }
+	  	}
+	})
+
+	//Controller for Form in Contact Us page
+	.controller('FormContactUsController',function($scope) {
+		$scope.user = {}; //inisialise user to store values
+	  	$scope.submit = function(form) { //when submit is clicked
+	    	$scope.submitted = false;
+
+	    	if (form.$valid) {
+                 $scope.submitted = true;
+                 //Show success message
+                 document.getElementById("form-contactus-success").setAttribute("class", "show");
+                // console.log("Form Valid");
+                //$scope.user = {}; reset the form
+                //return; return from function
+
+            } else {
+               // console.log("form is invalid");
+                $scope.submitted = true;
+
+            }
+	  	}
+
+	});
