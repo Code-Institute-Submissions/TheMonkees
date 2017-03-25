@@ -5,17 +5,18 @@
     <title>Band Web Project - The Monkees</title>
 
     <!-- CSS -->  
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
        
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/angular-route.min.js"></script>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+
   </head>
 
-  <body >
+  <body>
   <div id="bg-img">
   <band-nav></band-nav> <!-- adds the navigation bar to all pages-->
     <div ng-view></div> <!-- populates the content from templates -->
@@ -26,8 +27,8 @@
 </div>
   </body>
   <!-- Angularjs-->
-  <script src='javascript/app.js'></script>
-  <script src='javascript/controller.js'></script>
-  <script src='javascript/directive.js'></script>
-  <script src='javascript/service.js'></script>
+  <script src='js/app.js'></script>
+  <script src='js/controller.js'></script>
+  <script src='js/directive.js'></script>
+  <script src='js/service.js'></script>
 </html>

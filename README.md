@@ -1,9 +1,9 @@
-# TheMonkees - Project Stream 1 – Create A Website For A Band
+# The Monkees - Project Stream 1 – Create A Website For A Band
 
 
-------------
-Overview
-------------
+
+## Overview
+
 This project consists in building a static website for a band.
 The purpose of this website is to target fans and potential fans and:
 -	Provide them some information about the band and its members
@@ -13,7 +13,7 @@ The purpose of this website is to target fans and potential fans and:
 -	Give them a way to contact them regarding any matter by filling out a form and showing the address in a map.
 -	They can subscribe to a newsletter to keep up to date with everything related to the band
 
-I was provided with photos, a video clip and audio clips of the band (https://github.com/Code-Institute-Org/project-assets) and I added some more images to the collection.
+I was provided with photos, a video clip and audio clips of the band by [Code Institute](https://github.com/Code-Institute-Org/project-assets) and I added some more images to the collection.
 
 The website contains 6 different sections/pages:
 -	Home: provides an overview of the band and quick access to other sections of the website (calls to action)
@@ -23,91 +23,89 @@ The website contains 6 different sections/pages:
 -	Book the band & gigs: provides information about upcoming gigs with dates, some public and some private, giving the user the chance to see which dates the band is not available as well as give them the chance to get more information on the public gigs they might be interested in. It also provides a form to book the band for an event.
 -	Contact: provides a form to contact the band and a map and the address of their office.
 
------------------------
-Technology & Structure
------------------------
+
+## Technology & Structure
+
 The website was created using HTML, CSS and Javascript.
 Library: bootstrap
 Framework: Angular.js
 
-Internal Structure
-------------------
+### Internal Structure
+
 The Angular Application:
--	Templates – HTML files with an associated controller that will define the data to be presented for viewing in the browser
--	app.js: - defines the application and configuration
--	controller.js – interlayer between the template and the service
--	directive.js -  UI components that can be included in templates, views or new html elements that can have dynamic behaviour
--	service.js – allow model data and business logic to be retrieved from some source and passed on to controllers via dependency injection
+- Templates – HTML files with an associated controller that will define the data to be presented for viewing in the browser
+- app.js: - defines the application and configuration
+    
+- controller.js – interlayer between the template and the service
+- directive.js -  UI components that can be included in templates, views or new html elements that can have dynamic behaviour
+- service.js – allow model data and business logic to be retrieved from some source and passed on to controllers via dependency injection.
+    Used to retrieve upcoming gigs and to pull the "The Monkees" list from iTunes and send it back to the controller.
+- index.html - html file that the browser runs. It contains:  
+  - (directive.js) bandNav --> (template/directive) bandNav.html --> For all pages  
+  - (directive.js) footer --> (template/directive) footer.html --> For all pages  
+  - (app.js) calls html templates e.g. home.html  (see table below) --> Populates content depending on template
 
-index.html is the file running in the browser and populating the different content.
-               /--> (directive.js) bandNav --> (template/directive) bandNav.html --> For all pages
- -----------  /
-| index.html |---> (directive.js) footer --> (template/directive) footer.html --> For all pages
- -----------  \
-               \--> (app.js) calls html templates e.g. home.html  (see table below) --> Populates content depending on template
-
-
-Below you can find the different HTML templates and the different angular elements they interact with.
-________________________________________________________________________________________________________________
-| Template  |  Controllers             |   Directives  | Services          |  Templates   | Templates/Directives |
-|________________________________________________________________________________________________________________|
-| home      | HomeController           | newsletterCta |        -          |       -      | newsletter-cta       |
-|             FormNewsletterController |      -        |        -          |       -      |          -           |
-| ---------------------------------------------------------------------------------------------------------------|
-| the-band  | TheBandController        | newsletterCta |        -          |       -      | newsletter-cta       |
-|             FormNewsletterController |      -        |        -          |       -      |                      |
-| ---------------------------------------------------------------------------------------------------------------|
-| news      | NewsController           |      -        |        -          |       -      |          -           |
-| ---------------------------------------------------------------------------------------------------------------|
-| music     | MusicController          |      -        |        -          |       -      |          -           |
-|             AudioPlayerController    |      -        |        -          |       -      |          -           |
-|             ITunesListController     |      -        | itunesListService | iTunes-search|          -           |
-| ---------------------------------------------------------------------------------------------------------------|
-| book-band | BookBandController       |      -        |        -          |       -      |          -           |
-|             FormCookUsController     |      -        |        -          |       -      |          -           |
-|             BookedDatesController    |      -        | sharedBookedDates |       -      |          -           |
-| ---------------------------------------------------------------------------------------------------------------|
-| contact   | ContactController        | make-map      |        -          |       -      | map                  |
-| 	      FormContactUsController  |      -        |        -          |       -      |          -           |
-| _______________________________________________________________________________________________________________|
+Below you can find the different HTML templates and the different angular elements they interact with.  
 
 
-Directory Structure
-------------------
-The Monkees/
-      audio/
-    css/
-      vendor/
-      style.css
-    fonts/
-    images/
-    javascript/
-      vendor/
-      app.js
-      controller.js
-    directive.js
-    service.js
-    templates/
-      directives/
-        bandNav.html
-        footer.html
-        map.html
-        newsletter-cta.html
-    book-band.html
-    contact.html
-    home.html
-    iTunes-search.html
-    music.html
-    news.html
-    the-band.html
-    video/
-    index.html
-    README.md
+| Template  |  Controllers             |   Directives  | Services          |  Templates   | Templates/Directives |  
+|-----------|--------------------------|---------------|-------------------|--------------|----------------------|  
+| home      | HomeController           | newsletterCta |                   |              | newsletter-cta       |  
+|           | FormNewsletterController |               |                   |              |                      |  
+||||||                                                                                                           |  
+| the-band  | TheBandController        | newsletterCta |                   |              | newsletter-cta       |  
+|           | FormNewsletterController |               |                   |              |                      |  
+||||||                                                                                                           |  
+| news      | NewsController           |               |                   |              |                      |  
+||||||                                                                                                           |  
+| music     | MusicController          |               |                   |              |                      |  
+|           | AudioPlayerController    |               |                   |              |                      |  
+|           | ITunesListController     |               | itunesListService | iTunes-search|                      |  
+||||||                                                                                                           |  
+| book-band | BookBandController       |               |                   |              |                      |  
+|           | FormCookUsController     |               |                   |              |                      |  
+|           | BookedDatesController    |               | sharedBookedDates |              |                      |  
+||||||                                                                                                           |  
+| contact   | ContactController        | make-map      |                   |              | map                  |  
+| 	        |FormContactUsController   |               |                   |              |                      |  
+|||||                                                                                                           |  
+
+### Directory Structure
+
+The Monkees/   
+- audio/  
+- css/  
+  - vendor/  
+  - style.css  
+- fonts/  
+- images/  
+- javascript/  
+  - vendor/  
+  - app.js  
+  - controller.js  
+  - directive.js  
+  - service.js  
+- templates/  
+  - directives/  
+    - bandNav.html  
+    - footer.html  
+    - map.html  
+    - newsletter-cta.html  
+  - book-band.html  
+  - contact.html  
+  - home.html  
+  - iTunes-search.html  
+  - music.html  
+  - news.html  
+  - the-band.html  
+- video/  
+- index.html  
+- README.md  
 
 
------------
-Testing
-------------------
+
+## Testing
+
 Manual testing was used in the different stages of this process using different browsers (Chrome, Firefox, IE and Opera) and different screen sizes using the Element Inspector and the responsive/device mode.
 
 Tests:
@@ -116,5 +114,15 @@ Tests:
 - Dynamic content: Tested content populated via angular controllers, directives and services in different browsers.
 - Form Validation: All the forms have validation rules such us length and format of the content of the field. All the forms have been tested and validation rules work.
 
-Known Issues:
-- The map in Contact us only shows up sometimes.
+
+## Contributing
+
+### Getting the code up and running
+
+1. Clone this repository
+2. Install npm
+3. Install dependencies in package.json
+4. Install http-server
+5. Run http-server
+6. The project now run on localhost
+
