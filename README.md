@@ -54,23 +54,23 @@ Below you can find the different HTML templates and the different angular elemen
 |-----------|--------------------------|---------------|-------------------|--------------|----------------------|  
 | home      | HomeController           | newsletterCta |                   |              | newsletter-cta       |  
 |           | FormNewsletterController |               |                   |              |                      |  
-||||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 | the-band  | TheBandController        | newsletterCta |                   |              | newsletter-cta       |  
 |           | FormNewsletterController |               |                   |              |                      |  
-||||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 | news      | NewsController           |               |                   |              |                      |  
-||||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 | music     | MusicController          |               |                   |              |                      |  
 |           | AudioPlayerController    |               |                   |              |                      |  
 |           | ITunesListController     |               | itunesListService | iTunes-search|                      |  
-||||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 | book-band | BookBandController       |               |                   |              |                      |  
 |           | FormCookUsController     |               |                   |              |                      |  
 |           | BookedDatesController    |               | sharedBookedDates |              |                      |  
-||||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 | contact   | ContactController        | make-map      |                   |              | map                  |  
 | 	        |FormContactUsController   |               |                   |              |                      |  
-|||||                                                                                                           |  
+|..........|..........|..........|..........|..........|..........|  
 
 ### Directory Structure
 
