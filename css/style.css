@@ -99,7 +99,7 @@ band-nav .list-inline .dropdown-menu>li>a:hover{ /* Highlight dropdown when hove
 
 
 band-nav .navbar-brand {
-  padding: 0px; 
+  padding: 0;
 }
 band-nav .navbar-brand>img { /* logo */
   height: 100%;
@@ -123,16 +123,16 @@ Grey buy default. colored when hovering */
 .socmed{
 	padding: 10px 2px;
 	-webkit-filter: grayscale(100%);
-   -moz-filter: grayscale(100%);
-   -ms-filter: grayscale(100%);
-   filter: grayscale(100%);
-   filter: gray; /* IE 6-9 */
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; /* IE 6-9 */
 }
 
 .socmed:hover{
 	-webkit-filter: none;
    -moz-filter: none;
-   -ms-filter: none);
+   -ms-filter: none;
    filter: none;
 }
 
@@ -141,8 +141,7 @@ Grey buy default. colored when hovering */
 /*carousel home page*/
 
 .carousel{
-	background-color: none;
-	padding-bottom: 20px
+	padding-bottom: 20px;
 	overflow:hidden;
 	border-radius: 15px;
 }
@@ -158,7 +157,7 @@ Grey buy default. colored when hovering */
 }
 .carousel-caption{ /* Text centered in the slide */
 	padding-bottom: 80px;
-	text-shadow: 2px 2px F4F6F6;
+	text-shadow: 2px 2px #212121;
 
 }
 .carousel-control.left, .carousel-control.right { /* Remove grey area on the sides */

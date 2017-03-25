@@ -33,14 +33,16 @@ Framework: Angular.js
 ### Internal Structure
 
 The Angular Application:
-- Templates – HTML files with an associated controller that will define the data to be presented for viewing in the browser
-- app.js: - defines the application and configuration
-    
-- controller.js – interlayer between the template and the service
-- directive.js -  UI components that can be included in templates, views or new html elements that can have dynamic behaviour
-- service.js – allow model data and business logic to be retrieved from some source and passed on to controllers via dependency injection.
+- **Templates** – HTML files with an associated controller that will define the data to be presented for viewing in the browser
+- **app.js**: - defines the application and configuration  
+    Retrieves the appropriate template when the URL changes.    
+- **controller.js** – interlayer between the template and the service.  
+    Used to change page titles and other functionality in various pages
+- **directive.js** -  UI components that can be included in templates, views or new html elements that can have dynamic behaviour.  
+    Used to retrieve templates associated to the directives and functionality for the map. 
+- **service.js** – allow model data and business logic to be retrieved from some source and passed on to controllers via dependency injection.  
     Used to retrieve upcoming gigs and to pull the "The Monkees" list from iTunes and send it back to the controller.
-- index.html - html file that the browser runs. It contains:  
+- **index.html** - html file that the browser runs. It contains:  
   - (directive.js) bandNav --> (template/directive) bandNav.html --> For all pages  
   - (directive.js) footer --> (template/directive) footer.html --> For all pages  
   - (app.js) calls html templates e.g. home.html  (see table below) --> Populates content depending on template
@@ -75,9 +77,9 @@ Below you can find the different HTML templates and the different angular elemen
 The Monkees/   
 - audio/  
 - css/  
+  - fonts/  
   - vendor/  
   - style.css  
-- fonts/  
 - images/  
 - javascript/  
   - vendor/  
@@ -115,14 +117,29 @@ Tests:
 - Form Validation: All the forms have validation rules such us length and format of the content of the field. All the forms have been tested and validation rules work.
 
 
-## Contributing
+## Challenges
+I started this project in summer 2016 and it was mostly done but still some things to be fixed. 
+As I didn't have to send the project until the end of the course, I decided to continue with Stream 2 before I finished 
+project 1 in case I could apply some of the new learning to this project.
+ 
+It took me a few months to go through Stream 2 and when I came back to Project 1 to finish it it was difficult to 
+remember everything as I hadn't created the README file yet.
+ 
+I also had deployed the project using Firebase, but with the new advise in Stream 1 I change it to GitHub pages, having 
+delete all the files associated to Firebase.
 
-### Getting the code up and running
+ 
+
+## Getting the code up and running
 
 1. Clone this repository
-2. Install npm
+2. Install npm. You can download it from [here](https://nodejs.org/en/).
 3. Install dependencies in package.json
-4. Install http-server
+4. Install http-server `npm install -g http-server`
 5. Run http-server
-6. The project now run on localhost
+6. The project will now run on localhost
 
+  
+      
+
+###Thank you for visiting my project!
