@@ -26,9 +26,10 @@ The website contains 6 different sections/pages:
 
 ## Technology & Structure
 
-The website was created using HTML, CSS and Javascript.
-Library: bootstrap
-Framework: Angular.js
+The technology used in this project was HTML, CSS and Javascript. Including:
+**[Bootstrap](http://getbootstrap.com/)**: The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+**[AngularJS](https://angularjs.org/)**: A JavaScript framework for building dynamic web applications.
+
 
 ### Internal Structure
 
